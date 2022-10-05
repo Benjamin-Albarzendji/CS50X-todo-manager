@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+<table class = "table">
+        <tr>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Deadline</th>
+            <th>Archived</th>
+            <th>Status</th>
+        </tr>
+        <tbody>
+            {% for key in data %}
+            <tr>
+                <td>
+                    {{ key.categories }}
+                </td>
+                <td>
+                    {{ key.description }}
+                </td>
+                <td>
+                    {{ key.date }}
+                </td>
+                <td>
+                    {{ key.dateefin }}
+                </td>
+                <td>
+                    {{ key.how }}
+                </td>
+    
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+</table>
+
+<body>
+
+
+</body>
+{% endblock %}

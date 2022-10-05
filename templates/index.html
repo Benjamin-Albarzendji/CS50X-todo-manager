@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+{% block main %}
+<body>
+
+<div class = "row" ;">
+    {% for key in usertodo %}
+   <div class="col-sm-4 border-right">
+       <div class="cards">
+      <div class=" second p-4 text-center">
+        <h5 class="card-title text-white" >{{ key.categories }}</h5>
+        <h6 class="card-subtitle mb-2 text-white">{{key.date}}</h6>
+               <p class="line2">{{key.description}}</p>
+               <form id = "hello" action = "/finished" method ="post">
+                <button type="submit" class="btn btn-success btn-sm" id = "fin" value = "{{key.description}}" name ="finished">Finished</button>
+            </form>
+            <form id = "hello" action = "/delete" method ="post">
+                <button type="submit" class="btn btn-danger btn-sm" id = "del" value = "{{key.description}}", name = "deleted" >Delete</button>
+                </form>
+           </div>
+       </div>
+   </div>
+   {% endfor %}
+</div>
+</body>
+{% endblock %}
