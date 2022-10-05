@@ -2,7 +2,7 @@
 
 <img src="to-do_img.png" alt="drawing" width="1000"/>
 
-### This was my first project ever. The front-end is especially underwheling in this one (and will get fixed when there is more time) but the backend works quite well. 
+### This was my first project ever. The front-end is especially underwhelming in this one (and will get fixed when there is more time) but the backend works quite well. 
 
 #### Description: This is the final project for CS50x. It's a To-Do manager website capable of registering users, logging them in, and providing a basic interface of to-do reminders with various categories. It has a Flask and SQL backend with interactive front-end elements.
 
