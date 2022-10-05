@@ -7,7 +7,7 @@
 #### Description: This is the final project for CS50x. It's a To-Do manager website capable of registering users, logging them in, and providing a basic interface of to-do reminders with various categories. It has a Flask and SQL backend with interactive front-end elements.
 
 #### **Inspiration**
-##### This project was created as a final project for CS50x. The time constraint of real life had me re-adapting a notable chunk of code from a previous CS50x project titled "Finance". It is not a straight out copy where variable names have been changed but it has taken inspiration as my project required some of the same elements such as hosting a Flask server, login, registering, SQL server and so on.
+##### This project was created as a final project for CS50x.
 
 
 #### **Backend: Python, Flask & SQL**
