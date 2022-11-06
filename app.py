@@ -103,11 +103,12 @@ def register():
         hashpass = generate_password_hash(request.form.get("password"))
 
         # Inserts the user into the database
-        db.execute(
+        cursor.execute(
             "INSERT INTO users (username, password) VALUES (?,?)",
             request.form.get("username"),
             [hashpass],
         )
+        cursor.commit()
 
         # Remember the user that was registered
         usernew = db.execute(
@@ -167,17 +168,17 @@ def add():
             [userid, category, description, date],
         )
         dupecheck = cursor.fetchall()
-        print(dupecheck)
 
         if len(dupecheck) == 1:
             return apology("Exactly the same entry has been added previously")
 
         # Inserts into SQL server
         else:
-            db.execute(
+            cursor.execute(
                 "INSERT INTO todo (id, categories, description, date) VALUES (?,?,?,?)",
                 [userid, category, description, date],
             )
+            db.commit()
 
         return redirect("/")
 
