@@ -1,7 +1,7 @@
 from requests import request
 import datetime
 import sqlite3
-from flask import Flask, flash, redirect, render_template, request, session
+from flask import Flask, flash, redirect, render_template, request, session, jsonify
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -142,48 +142,59 @@ def index():
 @app.route("/add", methods=["GET", "POST"])
 @login_required
 def add():
-
-    # POST Request
+    
     if request.method == "POST":
+        json = request.get_json()
+        print(json)
+        
+            
+    
+    
+    # # POST Request
+    # if request.method == "POST":
 
-        # Make sure all fields are filled in
-        if (
-            not request.form.get("category")
-            or not request.form.get("description")
-            or not request.form.get("date")
-        ):
-            return apology("You must fill in all options", 400)
+    #     # Make sure all fields are filled in
+    #     if (
+    #         not request.form.get("category")
+    #         or not request.form.get("description")
+    #         or not request.form.get("date")
+    #     ):
+    #         return apology("You must fill in all options", 400)
 
-        # Operationalises variables from form
-        category = request.form.get("category")
-        description = request.form.get("description")
-        date = request.form.get("date")
+    #     # Operationalises variables from form
+    #     category = request.form.get("category")
+    #     description = request.form.get("description")
+    #     date = request.form.get("date")
 
-        # grabs userid
-        userid = session["user_id"]
+    #     # grabs userid
+    #     userid = session["user_id"]
 
-        # Checks first if it's a duplicate
-        dupecheck = cursor.execute(
-            "SELECT * FROM todo WHERE id = ? AND categories = ? AND description = ? AND date = ?",
-            [userid, category, description, date],
-        )
-        dupecheck = cursor.fetchall()
+    #     # Checks first if it's a duplicate
+    #     dupecheck = cursor.execute(
+    #         "SELECT * FROM todo WHERE id = ? AND categories = ? AND description = ? AND date = ?",
+    #         [userid, category, description, date],
+    #     )
+    #     dupecheck = cursor.fetchall()
 
-        if len(dupecheck) == 1:
-            return apology("Exactly the same entry has been added previously")
+    #     if len(dupecheck) == 1:
+    #         return apology("Exactly the same entry has been added previously")
 
-        # Inserts into SQL server
-        else:
-            cursor.execute(
-                "INSERT INTO todo (id, categories, description, date) VALUES (?,?,?,?)",
-                [userid, category, description, date],
-            )
-            db.commit()
+    #     # Inserts into SQL server
+    #     else:
+    #         cursor.execute(
+    #             "INSERT INTO todo (id, categories, description, date) VALUES (?,?,?,?)",
+    #             [userid, category, description, date],
+    #         )
+    #         db.commit()
 
-        return redirect("/")
+    #     return redirect("/")
 
-    # GET Request
-    return render_template("add.html")
+
+    # # GET Request
+        return render_template("add.html")
+
+
+    
 
 
 @app.route("/finished", methods=["POST"])

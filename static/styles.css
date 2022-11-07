@@ -22,7 +22,7 @@ li {
 }
 
 .cardContainer .card {
-    position: relative;
+  position: relative;
   width: 190px;
   height: 254px;
   border-radius: 25px;
@@ -36,22 +36,17 @@ li {
   overflow: hidden;
 }
 
-.cardContainer .card .top h6{
-    font-size: 0.7rem;
-    font-weight: bold;
+.cardContainer .card .top h6 {
+  font-size: 0.7rem;
+  font-weight: bold;
 }
 
-.cardContainer .card .top h5{
-    position: relative;
+.cardContainer .card .top h5 {
+  position: relative;
 
-    
-
-    
-
-    font-size: 1.4rem;
-    font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
-
 
 .cardContainer .card .colorBar {
   position: relative;
@@ -60,7 +55,6 @@ li {
   top: 100%;
   left: -20%;
   right: 0;
-  
 }
 
 .cardContainer .card.Professional .colorBar {
@@ -68,25 +62,23 @@ li {
 }
 
 .cardContainer .card.Academic .colorBar {
-    background-color: rgb(229, 149, 36);
-  }
+  background-color: rgb(229, 149, 36);
+}
 
-  .cardContainer .card.Social .colorBar {
-    background-color: rgb(26, 112, 224);
-  }
-  .cardContainer .card.Other .colorBar {
-    background-color: rgb(195, 45, 209);
-  }
+.cardContainer .card.Social .colorBar {
+  background-color: rgb(26, 112, 224);
+}
+.cardContainer .card.Other .colorBar {
+  background-color: rgb(195, 45, 209);
+}
 
-  .cardContainer .card.Training .colorBar {
-    background-color: rgb(45, 209, 97);
-  }
+.cardContainer .card.Training .colorBar {
+  background-color: rgb(45, 209, 97);
+}
 
-  .cardContainer .card.Studies .colorBar {
-    background-color: rgb(219, 68, 37);
-  }
-
-
+.cardContainer .card.Studies .colorBar {
+  background-color: rgb(219, 68, 37);
+}
 
 .card:hover {
   transform: scale(1.05);
@@ -101,22 +93,19 @@ li {
 .card .buttons {
   width: 100%;
   height: auto;
-  font-size: 0.7rem;
   display: flex;
   justify-content: center;
   gap: 10%;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
 }
 
 .card button {
-  width: 80px;
-  
-  font-size: 0.6rem;
+  width: 55px;
+  font-size: 0.8rem;
   transition: 0.3s ease-out;
   opacity: 0;
   border-radius: 1rem;
   border: none;
-  padding: 0.5rem 1rem;
   cursor: pointer;
   font-weight: bold;
   color: white;
