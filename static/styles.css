@@ -10,6 +10,29 @@ li {
   margin: 4px;
 }
 
+#add {
+  position: absolute;
+  right: 10%;
+  top: 23%;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  color: white;
+  background-color: rgb(232, 166, 26);
+  border: none;
+  transition: 0.5s;
+}
+
+#add:hover {
+  transition: 0.5s;
+  background-color: rgba(232, 167, 26, 0.801);
+}
+
+#add:active {
+  transform: scale(0.9);
+}
+
 .containerBody {
   margin: 0 20%;
   display: flex;
@@ -80,6 +103,10 @@ li {
   background-color: rgb(219, 68, 37);
 }
 
+.cardContainer .card.Shopping .colorBar {
+  background-color: rgb(219, 37, 134);
+}
+
 .card:hover {
   transform: scale(1.05);
   border-color: #008bf8;
@@ -120,60 +147,8 @@ li {
   transform: scale(0.9);
 }
 
-#formadd {
-  width: 35%;
-  margin: auto;
-}
-
-#submit {
-  margin: auto;
-}
-
-#hello {
-  display: inline-block;
-}
-
-.heading {
-  font-size: 20px;
-  font-weight: 600;
-  color: #ffffff;
-}
-
-.line1 {
-  color: #ffffff;
-  font-size: 12px;
-}
-.line2 {
-  color: #ffffff;
-  font-size: 12px;
-}
-.line3 {
-  color: blue;
-  font-size: 12px;
-}
-
-.btn {
-  margin-right: 0.5rem !important;
-}
-
-.btn {
-  font-size: 0.875rem;
-  line-height: 1;
-  font-weight: 400;
-  padding: 0.7rem 1.5rem;
-  border-radius: 0.1275rem;
-}
-
-.container {
-  margin-top: 100px;
-}
-
-.fs-11 {
-  font-size: 11px;
-}
-
 .fs-11:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 .nav {
   text-align: center;
@@ -182,4 +157,40 @@ li {
 
 .nav-item:hover {
   transform: scale(1.05);
+}
+
+.popupContact {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 5s;
+}
+
+.form {
+  display: flex;
+  position: absolute;
+  top: 20%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 200px;
+  height: 250px;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  background-color: #f0eef1;
+  border-radius: 10px;
+  color: black;
+  transition: 5s;
+}
+
+.show {
+  position: absolute;
+  opacity: 1;
+  transform: scale(1.2);
+  transition: 5s;
 }

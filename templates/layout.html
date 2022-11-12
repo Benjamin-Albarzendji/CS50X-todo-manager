@@ -27,7 +27,7 @@
                 <ul class="nav navbar-nav flex-row float-right" >
                     {% if session["user_id"] %}
                      <li class="nav-item"><a class="nav-link pr-3 text-white"href="/">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link pr-3 text-white" href="/add">ADD</a></li>
+                     <button id="add" onclick="showForm()">+</button>
                     <li class="nav-item"><a class="nav-link text-white pr-3" href="/history">HISTORY</a></li>
                 </ul>
                 <a href="/logout" class="navbar-brand float-left text-white fs-11 text-center">LOGOUT</a>

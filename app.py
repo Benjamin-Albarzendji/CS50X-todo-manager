@@ -53,8 +53,6 @@ def login():
         )
         userrowlen = cursor.fetchall()
 
-        print(userrowlen)
-
         # Checks validity of username and password
         if not check_password_hash(userrowlen[0][2], request.form.get("password")):
             return apology("Incorrect username or password", 403)
@@ -146,18 +144,14 @@ def add():
     # POST Request
     if request.method == "POST":
 
-        # Make sure all fields are filled in
-        if (
-            not request.form.get("category")
-            or not request.form.get("description")
-            or not request.form.get("date")
-        ):
-            return apology("You must fill in all options", 400)
-
+     
         # Operationalises variables from form
         category = request.form.get("category")
         description = request.form.get("description")
         date = request.form.get("date")
+        list = request.form.get("project")
+        if list == "":
+            list = "Main"
 
         # grabs userid
         userid = session["user_id"]
@@ -175,8 +169,8 @@ def add():
         # Inserts into SQL server
         else:
             cursor.execute(
-                "INSERT INTO todo (id, categories, description, date) VALUES (?,?,?,?)",
-                [userid, category, description, date],
+                "INSERT INTO todo (id, categories, description, date, list) VALUES (?,?,?,?,?)",
+                [userid, category, description, date, list],
             )
             db.commit()
 
@@ -206,9 +200,10 @@ def finish():
         )
         query = cursor.fetchall()
 
+        # Variables from database
         categories = query[0]["categories"]
         date = query[0]["date"]
-
+        # Inserts into history database
         cursor.execute(
             "INSERT INTO history (id, categories, description, date, dateefin, how) VALUES (?,?,?,?,?,?)",
             [userid, categories, data, date, time, status],
