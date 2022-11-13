@@ -22,22 +22,20 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-light bg-faded justify-content-between flex-nowrap flex-row border bg-dark">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav flex-row float-right" >
+        <nav>    
                     {% if session["user_id"] %}
-                     <li class="nav-item"><a class="nav-link pr-3 text-white"href="/">HOME</a></li>
-                     <button id="add" onclick="showForm()">+</button>
-                    <li class="nav-item"><a class="nav-link text-white pr-3" href="/history">HISTORY</a></li>
-                </ul>
-                <a href="/logout" class="navbar-brand float-left text-white fs-11 text-center">LOGOUT</a>
-
+                    <button id="home" onclick = "homeButtonNav()">Home</button>
+                     <button id="add" onclick="showForm()">Add</button>
+                     <button id="history" onclick = "historyButtonNav()">History</button>
+                     <button id="logout" onclick = "logoutButtonNav()">Logout</button>
+                
+            
                 {% else %}
-                <li class="nav-item"><a class="nav-link pr-3 text-white" href="/login">LOGIN</a></li>
-                <li class="nav-item"><a class="nav-link pr-3 text-white " href="/register">REGISTER</a></li>
+                <button id="login" onclick = "loginButtonNav()">Login</button>
+                <button id="register" onclick = "registerButtonNav()">Register</button>
 
                 {% endif %}
-            </div>
+            
         </nav>
 
         {% if get_flashed_messages() %}
@@ -53,7 +51,7 @@
         </main>
 
         <footer class="mb-5 small text-center text-muted">
-            To-do Manager Website for CS50x Final Project.
+            To-do Manager Website for CS50x Final Project & Updated for The Odin Project.
         </footer>
 
     </body>

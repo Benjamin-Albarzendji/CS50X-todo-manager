@@ -10,9 +10,11 @@
         <tr>
             <th>Category</th>
             <th>Description</th>
+            <th>List</th>
             <th>Deadline</th>
             <th>Archived</th>
             <th>Status</th>
+            <th>Restore</th>
         </tr>
         <tbody>
             {% for key in data %}
@@ -24,6 +26,9 @@
                     {{ key.description }}
                 </td>
                 <td>
+                    {{ key.list }}
+                </td>
+                <td>
                     {{ key.date }}
                 </td>
                 <td>
@@ -31,6 +36,9 @@
                 </td>
                 <td>
                     {{ key.how }}
+                </td>
+                <td >
+                    <button id="restore" value="{{key.description}}">Restore</button>
                 </td>
     
             </tr>

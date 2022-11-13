@@ -130,7 +130,9 @@ def index():
     userid = session["user_id"]
 
     # queries SQL servr
-    usertodo = cursor.execute("SELECT * FROM todo WHERE id = ?", [userid])
+    usertodo = cursor.execute(
+        "SELECT * FROM todo WHERE id = ? ORDER BY date ASC", [userid]
+    )
     usertodo = usertodo.fetchall()
 
     # Renders the todo
@@ -144,7 +146,6 @@ def add():
     # POST Request
     if request.method == "POST":
 
-     
         # Operationalises variables from form
         category = request.form.get("category")
         description = request.form.get("description")
@@ -203,10 +204,11 @@ def finish():
         # Variables from database
         categories = query[0]["categories"]
         date = query[0]["date"]
+        list = query[0]["list"]
         # Inserts into history database
         cursor.execute(
-            "INSERT INTO history (id, categories, description, date, dateefin, how) VALUES (?,?,?,?,?,?)",
-            [userid, categories, data, date, time, status],
+            "INSERT INTO history (id, categories, description, date, dateefin, how, list) VALUES (?,?,?,?,?,?,?)",
+            [userid, categories, data, date, time, status, list],
         )
         db.commit()
 
@@ -245,10 +247,11 @@ def delete():
 
         categories = query[0]["categories"]
         date = query[0]["date"]
+        list = query[0]["list"]
 
         cursor.execute(
-            "INSERT INTO history (id, categories, description, date, dateefin, how) VALUES (?,?,?,?,?,?)",
-            [userid, categories, data, date, time, status],
+            "INSERT INTO history (id, categories, description, date, dateefin, how, list) VALUES (?,?,?,?,?,?,?)",
+            [userid, categories, data, date, time, status, list],
         )
         db.commit()
 
@@ -268,10 +271,52 @@ def history():
 
     # Query SQL SERVER FOR HISTORY
     userid = session["user_id"]
-    data = cursor.execute("SELECT * FROM history WHERE id = ?", [userid])
+    data = cursor.execute(
+        "SELECT * FROM history WHERE id = ? ORDER BY date DESC", [userid]
+    )
     data = cursor.fetchall()
 
     return render_template("history.html", data=data)
+
+
+@app.route("/restore", methods=["POST"])
+@login_required
+def restore():
+
+    # POST Request
+    if request.method == "POST":
+
+        json = request.get_json()
+
+        data = json["description"]
+
+        # Initializes variables
+        userid = session["user_id"]
+
+        # SQL into history log
+        query = cursor.execute(
+            "SELECT * FROM history WHERE description = ? AND id = ?", [data, userid]
+        )
+        query = cursor.fetchall()
+
+        categories = query[0]["categories"]
+        date = query[0]["date"]
+        list = query[0]["list"]
+
+        cursor.execute(
+            "INSERT INTO todo (id, categories, description, date, list) VALUES (?,?,?,?,?)",
+            [userid, categories, data, date, list],
+        )
+        db.commit()
+
+        # SQL injection remove
+        cursor.execute(
+            "DELETE FROM history where id = ? AND description = ?", [userid, data]
+        )
+        db.commit()
+
+        # Redirects to homepage
+        return redirect("/history")
 
 
 @app.route("/logout")

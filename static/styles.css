@@ -2,34 +2,48 @@ body {
   background-color: white;
 }
 
-tr {
-  background-color: #ffffff;
+nav{
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 
-li {
-  margin: 4px;
-}
-
-#add {
-  position: absolute;
-  right: 10%;
-  top: 23%;
+nav button{
   width: 60px;
   height: 60px;
   border-radius: 100%;
-  font-size: 1.5rem;
   color: white;
   background-color: rgb(232, 166, 26);
   border: none;
   transition: 0.5s;
+  font-size: 0.8rem;
+
 }
 
-#add:hover {
+#add {
+  background-color: rgb(88, 198, 71);
+}
+
+#home {
+  background-color: rgb(71, 130, 198);
+}
+
+#logout {
+  background-color: rgb(197, 66, 66);
+}
+
+#register{
+  background-color: rgb(127, 123, 108);
+}
+
+
+nav button:hover {
   transition: 0.5s;
   background-color: rgba(232, 167, 26, 0.801);
 }
 
-#add:active {
+nav button:active {
   transform: scale(0.9);
 }
 
@@ -74,7 +88,7 @@ li {
 .cardContainer .card .colorBar {
   position: relative;
   width: 150%;
-  height: 10%;
+  height: 20%;
   top: 100%;
   left: -20%;
   right: 0;
@@ -100,11 +114,15 @@ li {
 }
 
 .cardContainer .card.Studies .colorBar {
-  background-color: rgb(219, 68, 37);
+  background-color: rgb(246, 186, 57);
 }
 
 .cardContainer .card.Shopping .colorBar {
   background-color: rgb(219, 37, 134);
+}
+
+.cardContainer .card.Health .colorBar {
+  background-color: rgb(234, 23, 23);
 }
 
 .card:hover {
@@ -145,18 +163,6 @@ li {
 }
 .card .buttons button:active {
   transform: scale(0.9);
-}
-
-.fs-11:hover {
-  transform: scale(1.1);
-}
-.nav {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.nav-item:hover {
-  transform: scale(1.05);
 }
 
 .popupContact {
