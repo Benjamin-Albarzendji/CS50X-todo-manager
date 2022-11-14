@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
     <head>
-
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, width=device-width">
 
@@ -16,27 +13,22 @@
 
         <!-- Script JS -->
         <script src = "static/script.js" defer></script>
-        
-
         <title>CS50 To-do Manager: {% block title %}{% endblock %}</title>
-
     </head>
     <body>
-        <nav>    
+        <nav>    <div class="centerNav">
                     {% if session["user_id"] %}
-                    <button id="home" onclick = "homeButtonNav()">Home</button>
-                     <button id="add" onclick="showForm()">Add</button>
-                     <button id="history" onclick = "historyButtonNav()">History</button>
-                     <button id="logout" onclick = "logoutButtonNav()">Logout</button>
-                
-            
+                    <button class="home" onclick = "homeButtonNav()">Home</button>
+                     <button class="add" onclick="showForm()">Add</button>
+                     <button class="history" onclick = "historyButtonNav()">History</button>
+                     <button class="logout" onclick = "logoutButtonNav()">Logout</button>
+        
                 {% else %}
-                <button id="login" onclick = "loginButtonNav()">Login</button>
-                <button id="register" onclick = "registerButtonNav()">Register</button>
-
+                <button class="login" onclick = "loginButtonNav()">Login</button>
+                <button class="register" onclick = "registerButtonNav()">Register</button>
                 {% endif %}
-            
         </nav>
+    </div>
 
         {% if get_flashed_messages() %}
             <header>

@@ -6,7 +6,9 @@
 
 {% block main %}
 
-<table class = "table">
+<div class="tableContainer">
+<table >
+    <thead >
         <tr>
             <th>Category</th>
             <th>Description</th>
@@ -16,11 +18,15 @@
             <th>Status</th>
             <th>Restore</th>
         </tr>
+    </thead>
+
         <tbody>
             {% for key in data %}
             <tr>
-                <td>
+                <td >
+                    <div class={{ key.categories }}>
                     {{ key.categories }}
+                </div>
                 </td>
                 <td>
                     {{ key.description }}
@@ -35,7 +41,9 @@
                     {{ key.dateefin }}
                 </td>
                 <td>
+                    <div class="{{ key.how }}">
                     {{ key.how }}
+                </div>
                 </td>
                 <td >
                     <button id="restore" value="{{key.description}}">Restore</button>
@@ -46,7 +54,7 @@
         </tbody>
     </thead>
 </table>
-
+</div>
 <body>
 
 
