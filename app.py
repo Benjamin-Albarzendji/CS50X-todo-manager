@@ -327,8 +327,3 @@ def logout():
 
     # Redirect user to login form
     return redirect("/")
-
-
-# CREATE TABLE users (id INTEGER PRIMARY KEY, username TEXT, password TEXT);
-# CREATE TABLE todo (id INTEGER, categories TEXT, description TEXT, date TEXT, FOREIGN KEY (id) REFERENCES users (id));
-# CREATE TABLE history (id INTEGER, categories TEXT, description TEXT, date TEXT, dateefin text, how TEXT, FOREIGN KEY (id) REFERENCES users (id));
