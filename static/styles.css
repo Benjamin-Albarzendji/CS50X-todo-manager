@@ -38,10 +38,7 @@ table {
   width: 80%;
   border-collapse: separate;
   border-spacing: 0px 15px;
-}
-
-.tableHeader {
-  background-color: black;
+  border-radius: 10px;
 }
 
 thead {
@@ -49,13 +46,20 @@ thead {
   color: white;
 }
 
+thead tr {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 15px;
+}
+
 thead th:first-of-type {
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
+  background-clip: padding-box;
 }
 thead th:last-of-type {
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
+  background-clip: padding-box;
 }
 
 th,
@@ -82,6 +86,7 @@ table button {
   font-weight: bold;
   font-size: 0.8rem;
   transition: 0.5s;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 table button:hover {
@@ -94,6 +99,7 @@ tr td > div {
   font-weight: bold;
   color: white;
   font-size: 0.8rem;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 tr td .Professional {
   background-color: black;
@@ -267,6 +273,7 @@ nav button:active {
   cursor: pointer;
   font-weight: bold;
   color: white;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 .card .buttons > button:first-child {
   background-color: rgb(49, 90, 201);
@@ -296,8 +303,8 @@ nav button:active {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 200px;
-  height: 250px;
+  width: 300px;
+  height: 400px;
   gap: 10px;
   flex-wrap: wrap;
   font-size: 1rem;
@@ -310,8 +317,39 @@ nav button:active {
 .show {
   position: absolute;
   opacity: 1;
-  transform: scale(1.2);
+  transform: scale(1.1);
   transition: 5s;
 }
 
+form input,
+form select {
+  width: 80%;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  padding: 15px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
 
+form button {
+  width: 20%;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(23, 210, 23);
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  transition: 1s;
+}
+
+form button:hover {
+  background-color: rgba(23, 210, 23, 0.58);
+  transition: 1s;
+}
+
+form button:active {
+  transform: scale(0.9);
+  transition: 1s;
+}

@@ -271,7 +271,7 @@ def history():
     # Query SQL SERVER FOR HISTORY
     userid = session["user_id"]
     data = cursor.execute(
-        "SELECT * FROM history WHERE id = ? ORDER BY date DESC", [userid]
+        "SELECT * FROM history WHERE id = ? ORDER BY dateefin DESC", [userid]
     )
     data = cursor.fetchall()
 

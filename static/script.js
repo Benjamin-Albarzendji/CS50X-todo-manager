@@ -120,7 +120,7 @@ function createForm() {
   formDiv.style.position = "absolute";
   formDiv.style.top = "0%";
   formDiv.innerHTML = ` <form action="/add" id="formadd" name="form" class="form" method="post">
-  <h4>Add To-do</h4>
+  <h6>What would you like to add?</h6>
   <select form="formadd" name="category" required>
       <option value="" disabled selected hidden>Category...</option>
       <option value="Academic">Academic</option>
