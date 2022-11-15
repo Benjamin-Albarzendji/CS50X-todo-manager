@@ -2,7 +2,7 @@
 
 <img src="images/to-do.png" alt="drawing" width="500"/>
 
-Dynamic To-Do cards that change their size on hover.
+Dynamic To-Do Cards that change their size on hover.
 
 <img src="images/popup.png" alt="drawing" width="300"/>
 
