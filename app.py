@@ -88,12 +88,15 @@ def register():
         if request.form.get("password") != request.form.get("confirmation"):
             return apology("Your password does not match the confirmation", 400)
 
+        # username
+        username = request.form.get("username")
+
         # Checks the database if the user already exists
-        existcheck = db.execute(
-            "SELECT username FROM users WHERE username = ?",
-            request.form.get("username"),
+        existcheck = cursor.execute(
+            "SELECT username FROM users WHERE username = ?", [username]
         )
-        if len(existcheck) == 1:
+        existcheck = cursor.fetchall()
+        if len(existcheck) >= 1:
             return apology("Username already exists", 400)
 
         # Hashes the password
@@ -101,16 +104,13 @@ def register():
 
         # Inserts the user into the database
         cursor.execute(
-            "INSERT INTO users (username, password) VALUES (?,?)",
-            request.form.get("username"),
-            [hashpass],
+            "INSERT INTO users (username, password) VALUES (?,?)", [username, hashpass]
         )
-        cursor.commit()
+        db.commit()
 
         # Remember the user that was registered
-        usernew = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
-        )
+        usernew = cursor.execute("SELECT * FROM users WHERE username = ?", [username])
+        usernew = cursor.fetchall()
         session["user_id"] = usernew[0]["id"]
 
         # Redirects to homepage
